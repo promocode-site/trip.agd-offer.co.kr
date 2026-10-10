@@ -74,9 +74,6 @@
 </script>
 
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Noto Sans KR',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.7;color:#1a1a1a;background:linear-gradient(135deg,#4facfe 0%,#00f2fe 100%);background-attachment:fixed}
@@ -168,14 +165,41 @@ nav a{padding:15px 18px;font-size:0.9rem}
 .scroll-top{position:fixed;bottom:30px;right:30px;background:linear-gradient(135deg,#fa709a,#ff9a9e);color:#fff;width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;cursor:pointer;box-shadow:0 4px 20px rgba(250,112,154,0.5);opacity:0;transition:all 0.3s;z-index:99}
 .scroll-top.show{opacity:1}
 .scroll-top:hover{transform:translateY(-5px);box-shadow:0 6px 30px rgba(250,112,154,0.7)}
+.page-nav{position:relative;top:auto;z-index:1;background:none;box-shadow:none;margin:-30px auto 30px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.page-nav ul{flex-wrap:nowrap;width:max-content;max-width:none;margin:0 auto;padding:4px 2px 8px;gap:10px}
+.page-nav a{padding:8px 22px;background:#fff;color:#333;border-radius:50px;white-space:nowrap;box-shadow:0 4px 15px rgba(0,0,0,0.2)}
+.page-nav a::after{bottom:4px;height:3px}
+.page-nav a:hover{color:#d63031}
+.page-nav a:hover::after,.page-nav a[aria-current="page"]::after{width:60%}
+.page-nav a[aria-current="page"]{color:#d63031}
+a.hero-badge{text-decoration:none}
+a.copy-btn,a.promo-btn,a.check-btn{display:inline-block;text-decoration:none}
+.more-wrap{text-align:center;margin-top:30px}
+summary.faq-question{list-style:none}
+summary.faq-question::-webkit-details-marker{display:none}
+details[open]>.faq-question span:last-child{transform:rotate(180deg)}
+details[open]>.faq-answer{padding:25px;max-height:2000px}
+.coupon-link:hover{background:#f0f4ff!important;border-color:#4a90d9!important;transform:translateY(-2px);box-shadow:0 4px 12px rgba(74,144,217,0.15)!important}
+.footer-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px;max-width:900px;margin:0 auto 40px;padding-bottom:35px;border-bottom:1px solid rgba(255,255,255,0.15);text-align:left}
+.footer-links-title{font-size:1.1rem;font-weight:900;color:#fff;margin-bottom:12px}
+.footer-links ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px 18px}
+.footer-links a{display:inline-block;padding:7px 0;font-size:0.98rem}
+@media(max-width:768px){.page-nav{margin:-40px -20px 25px}.page-nav ul{padding:4px 20px 8px}.page-nav a{padding:8px 18px}}
 </style>
 </head>
 <body>
 
 <header>
+<nav class="page-nav" aria-label="페이지 메뉴">
+<ul>
+<li><a href="./" aria-current="page">홈</a></li>
+<li><a href="promo-code/">프로모션코드</a></li>
+<li><a href="card-discount/">카드할인</a></li>
+</ul>
+</nav>
 <h1>🎉 트립닷컴 프로모션 코드</h1>
 <p>최대 50% 할인! 항공권·호텔 최저가 예약의 모든 것</p>
-<div class="hero-badge" onclick="window.open('http://app.ac/Cqp4OR283','_blank','noopener,noreferrer')" style="cursor:pointer">💰 지금 바로 할인받기</div>
+<a class="hero-badge" href="http://app.ac/Cqp4OR283" target="_blank" rel="nofollow sponsored noopener">💰 지금 바로 할인받기</a>
 </header>
 
 <nav>
@@ -203,7 +227,7 @@ nav a{padding:15px 18px;font-size:0.9rem}
 <div class="code-badge">TRIP3</div>
 <p itemprop="description">국제선 일부 노선 한정으로 사용 가능하며, 2026년 10월 31일까지 유효합니다. 일부 저가항공 프로모션 운임 등에는 적용되지 않을 수 있습니다.</p>
 <p style="color:#fa709a;font-weight:700;margin-top:10px">💰 절약 예시: 30만원 항공권 → 9,000원 할인</p>
-<button class="copy-btn" onclick="copyCode('TRIP3',this)">📋 코드 복사하기</button>
+<a class="copy-btn" href="http://app.ac/Cqp4OR283" target="_blank" rel="nofollow sponsored noopener">📋 코드 복사하기</a>
 <meta itemprop="priceValidUntil" content="2026-10-31">
 </div>
 
@@ -214,7 +238,7 @@ nav a{padding:15px 18px;font-size:0.9rem}
 <div class="code-badge">TRIPFLIGHT26KR</div>
 <p itemprop="description">트립닷컴 항공권 첫 예약 고객 대상 정액 할인코드입니다. 22만원 이상 결제 시 5,000원, 55만원 이상 결제 시 최대 22,000원이 할인되며, 2026년 12월 31일까지 사용 가능합니다.</p>
 <p style="color:#fa709a;font-weight:700;margin-top:10px">💰 55만원 이상 항공권 예약 시 즉시 22,000원 차감!</p>
-<button class="copy-btn" onclick="copyCode('TRIPFLIGHT26KR',this)">📋 코드 복사하기</button>
+<a class="copy-btn" href="http://app.ac/Cqp4OR283" target="_blank" rel="nofollow sponsored noopener">📋 코드 복사하기</a>
 <meta itemprop="priceValidUntil" content="2026-12-31">
 </div>
 
@@ -225,7 +249,7 @@ nav a{padding:15px 18px;font-size:0.9rem}
 <div class="code-badge">TRIPBH3</div>
 <p itemprop="description">전 세계 숙소 예약 시 3% 할인을 제공합니다. 계정당 10회까지 사용 가능하며 할인 한도는 없습니다. 2026년 10월 31일까지 유효합니다.</p>
 <p style="color:#11998e;font-weight:700;margin-top:10px">✅ 계정당 10회까지 사용 가능, 원화 결제 시 사용 가능</p>
-<button class="copy-btn" onclick="copyCode('TRIPBH3',this)">📋 코드 복사하기</button>
+<a class="copy-btn" href="http://app.ac/Cqp4OR283" target="_blank" rel="nofollow sponsored noopener">📋 코드 복사하기</a>
 <meta itemprop="priceValidUntil" content="2026-10-31">
 </div>
 
@@ -235,7 +259,7 @@ nav a{padding:15px 18px;font-size:0.9rem}
 <h3 itemprop="name">🚗 렌터카 8% 할인</h3>
 <div class="code-badge">TRIPCAR8</div>
 <p itemprop="description">전 세계 렌터카 예약 시 사용 가능하며 8% 즉시 할인을 제공합니다. 2026년 10월 31일까지 유효합니다. 트립닷컴 첫 렌터카 예약 고객도 해당 코드로 할인 가능합니다.</p>
-<button class="copy-btn" onclick="copyCode('TRIPCAR8',this)">📋 코드 복사하기</button>
+<a class="copy-btn" href="http://app.ac/Cqp4OR283" target="_blank" rel="nofollow sponsored noopener">📋 코드 복사하기</a>
 <meta itemprop="priceValidUntil" content="2026-10-31">
 </div>
 
@@ -245,7 +269,7 @@ nav a{padding:15px 18px;font-size:0.9rem}
 <h3 itemprop="name">🚗 렌터카 7% 할인</h3>
 <div class="code-badge">TRIPCAR7</div>
 <p itemprop="description">2026년 10월 31일까지 장기적으로 사용 가능한 렌터카 할인코드로, 7% 할인이 제공됩니다. KRW 결제 시 적용 가능하며, 유효기간 내 횟수 제한 없이 쓸 수 있습니다.</p>
-<button class="copy-btn" onclick="copyCode('TRIPCAR7',this)">📋 코드 복사하기</button>
+<a class="copy-btn" href="http://app.ac/Cqp4OR283" target="_blank" rel="nofollow sponsored noopener">📋 코드 복사하기</a>
 <meta itemprop="priceValidUntil" content="2026-10-31">
 </div>
 
@@ -255,7 +279,7 @@ nav a{padding:15px 18px;font-size:0.9rem}
 <h3 itemprop="name">투어 & 티켓 5% 할인</h3>
 <div class="code-badge">GO5</div>
 <p itemprop="description">각종 액티비티 예약 시 5% 할인을 받을 수 있는 코드로, 최대 4,000원까지 할인됩니다. 신규 회원에게도 제공되는 코드이며, 쿠폰 수령 후 3일간 유효합니다. 2026년 10월 31일까지 사용할 수 있습니다.</p>
-<button class="copy-btn" onclick="copyCode('GO5',this)">📋 코드 복사하기</button>
+<a class="copy-btn" href="http://app.ac/Cqp4OR283" target="_blank" rel="nofollow sponsored noopener">📋 코드 복사하기</a>
 <meta itemprop="priceValidUntil" content="2026-10-31">
 </div>
 
@@ -281,7 +305,7 @@ nav a{padding:15px 18px;font-size:0.9rem}
 <div class="code-badge">TOSSF05</div>
 <p itemprop="description">토스페이로 결제하면 항공권을 5% 할인받을 수 있는 코드예요! 최대 6만원까지 할인되고 최소 사용 금액 제한도 없어요. 할인·예약은 2026년 10월 31일까지, 이륙은 2026년 11월 30일까지 가능합니다. 계정당 하루 1번 선착순이니, 전용 링크로 들어가서 결제할 때 TOSSF05를 입력하세요!</p>
 <p style="color:#11998e;font-weight:700;margin-top:10px">💰 최대 6만원 할인 · 토스페이 전용 · 하루 1회</p>
-<button class="copy-btn" onclick="copyCode('TOSSF05',this,'http://app.ac/cEMTKrS53')">📋 코드 복사</button>
+<a class="copy-btn" href="http://app.ac/cEMTKrS53" target="_blank" rel="nofollow sponsored noopener">📋 코드 복사</a>
 <meta itemprop="priceValidUntil" content="2026-11-30">
 </div>
 
@@ -290,7 +314,7 @@ nav a{padding:15px 18px;font-size:0.9rem}
 <div class="code-badge">TOSSH05</div>
 <p itemprop="description">토스페이로 호텔을 예약하면 5% 할인! 최대 6만원까지 할인되고 최소 사용 금액 제한이 없어요. 할인·예약은 2026년 10월 31일까지, 숙박은 2026년 11월 30일까지 가능합니다. 계정당 하루 1번 선착순이니 전용 링크로 접속 후 결제 시 TOSSH05를 입력하면 끝!</p>
 <p style="color:#11998e;font-weight:700;margin-top:10px">💰 최대 6만원 할인 · 토스페이 전용 · 하루 1회</p>
-<button class="copy-btn" onclick="copyCode('TOSSH05',this,'http://app.ac/cEMTKrS53')">📋 코드 복사</button>
+<a class="copy-btn" href="http://app.ac/cEMTKrS53" target="_blank" rel="nofollow sponsored noopener">📋 코드 복사</a>
 <meta itemprop="priceValidUntil" content="2026-11-30">
 </div>
 
@@ -311,7 +335,7 @@ nav a{padding:15px 18px;font-size:0.9rem}
 <h3 itemprop="name">🏦 삼성카드 (대한민국)</h3>
 <p itemprop="description">항공권 결제금액 최대 2% 즉시 할인. 트립닷컴에서 삼성카드로 항공권을 결제하면 2% 할인이 자동 적용됩니다.</p>
 <p style="color:#fa709a;font-weight:700">💡 예시: 50만원 항공권 → 1만원 할인</p>
-<button class="promo-btn" onclick="openLink('http://app.ac/Cqp4OR283')">🎯 프로모션 적용하기</button>
+<a class="promo-btn" href="http://app.ac/Cqp4OR283" target="_blank" rel="nofollow sponsored noopener">🎯 프로모션 적용하기</a>
 <meta itemprop="availability" content="https://schema.org/InStock">
 </div>
 
@@ -320,7 +344,7 @@ nav a{padding:15px 18px;font-size:0.9rem}
 <span class="savings-tag">최대 2%</span>
 <h3 itemprop="name">🏦 롯데카드 (대한민국)</h3>
 <p itemprop="description">호텔 결제금액 최대 2% 즉시 할인. 롯데카드로 국내·해외 호텔을 결제하면 2% 할인이 즉시 적용됩니다. 항공권·호텔 모두 트립닷컴에서 무이자 할부 결제도 지원되며, 네이버페이로 결제 시 포인트 적립 혜택도 함께 받을 수 있습니다.</p>
-<button class="promo-btn" onclick="openLink('http://app.ac/Cqp4OR283')">🎯 프로모션 적용하기</button>
+<a class="promo-btn" href="http://app.ac/Cqp4OR283" target="_blank" rel="nofollow sponsored noopener">🎯 프로모션 적용하기</a>
 <meta itemprop="availability" content="https://schema.org/InStock">
 </div>
 
@@ -330,7 +354,7 @@ nav a{padding:15px 18px;font-size:0.9rem}
 <h3 itemprop="name">💳 Visa 카드 (글로벌)</h3>
 <p itemprop="description">트립닷컴 결제 시 최대 6% 할인. 비자카드로 결제하면 호텔 6%, 항공권 3%, 액티비티 4% 즉시 할인이 제공됩니다. 해당 Visa 프로모션은 2026년 12월 31일까지 진행됩니다.</p>
 <p style="color:#fa709a;font-weight:700">💡 예시: 20만원 호텔 예약 → 1만2천원 할인</p>
-<button class="promo-btn" onclick="openLink('http://app.ac/Cqp4OR283')">🎯 프로모션 적용하기</button>
+<a class="promo-btn" href="http://app.ac/Cqp4OR283" target="_blank" rel="nofollow sponsored noopener">🎯 프로모션 적용하기</a>
 <meta itemprop="priceValidUntil" content="2026-12-31">
 <meta itemprop="availability" content="https://schema.org/InStock">
 </div>
@@ -346,7 +370,7 @@ nav a{padding:15px 18px;font-size:0.9rem}
 <span class="discount-badge">MCTRIP10 - Platinum 10%</span>
 </div>
 <p style="margin-top:15px">항공권 및 호텔 결제 시 할인되며, 1인당 연 10회까지 사용 가능, 최소 결제금액 제한은 없습니다. 이 행사는 발급 은행별로 기간이 달라, 일부 은행은 2026년 12월 31일까지 유효합니다.</p>
-<button class="promo-btn" onclick="openLink('http://app.ac/Cqp4OR283')">🎯 프로모션 적용하기</button>
+<a class="promo-btn" href="http://app.ac/Cqp4OR283" target="_blank" rel="nofollow sponsored noopener">🎯 프로모션 적용하기</a>
 <meta itemprop="priceValidUntil" content="2026-12-31">
 <meta itemprop="availability" content="https://schema.org/InStock">
 </div>
@@ -357,7 +381,7 @@ nav a{padding:15px 18px;font-size:0.9rem}
 <h3 itemprop="name">🏦 Citibank 씨티카드 (싱가포르)</h3>
 <p itemprop="description">매주 금요일 12시 선착순 항공권 50% 할인. Citi Fly-days 프로모션으로, 2026년 1월~12월 매주 금요일 정오(12:00)에 씨티 Mastercard 카드로 결제 시 이코노미 왕복항공권 2매 50% 할인 코드를 제공합니다 (최대 S$150 할인).</p>
 <p style="color:#d63031;font-weight:700;margin-top:10px">⚠️ 할인코드 수량이 한정되어 있으며 선착순 소진 시 종료됩니다.</p>
-<button class="promo-btn" onclick="openLink('http://app.ac/Cqp4OR283')">🎯 프로모션 적용하기</button>
+<a class="promo-btn" href="http://app.ac/Cqp4OR283" target="_blank" rel="nofollow sponsored noopener">🎯 프로모션 적용하기</a>
 <meta itemprop="availability" content="https://schema.org/LimitedAvailability">
 </div>
 
@@ -366,7 +390,7 @@ nav a{padding:15px 18px;font-size:0.9rem}
 <span class="savings-tag">최대 50%</span>
 <h3 itemprop="name">🏦 DBS/POSB 은행카드 (싱가포르)</h3>
 <p itemprop="description">매주 월요일 12시 선착순 항공권 50% 할인. Fly Mon-YAY 프로모션으로, 2026년 1월~12월 매주 월요일 정오에 DBS/POSB 카드로 결제 시 이코노미 왕복항공권 2매 50% 할인 코드를 제공합니다 (최대 S$200 할인). 월요일 점심시간마다 한정 수량의 50% 할인코드를 지급하므로 서두르는 것이 좋습니다.</p>
-<button class="promo-btn" onclick="openLink('http://app.ac/Cqp4OR283')">🎯 프로모션 적용하기</button>
+<a class="promo-btn" href="http://app.ac/Cqp4OR283" target="_blank" rel="nofollow sponsored noopener">🎯 프로모션 적용하기</a>
 <meta itemprop="availability" content="https://schema.org/LimitedAvailability">
 </div>
 
@@ -375,7 +399,7 @@ nav a{padding:15px 18px;font-size:0.9rem}
 <span class="savings-tag">최대 S$120</span>
 <h3 itemprop="name">🏦 HSBC 홍콩상하이은행 카드 (싱가포르)</h3>
 <p itemprop="description">매주 목요일 12시 항공권 최대 S$120 할인. Thrilling Thursdays 프로모션으로, 2026년 1월 15일부터 12월 31일까지 매주 목요일 정오에 HSBC 신용카드로 항공권 예약 시 사용할 수 있는 할인코드를 선착순 제공합니다. 최소 S$1,000 이상 결제 시 S$120 할인 (약 10만원 상당) 등 조건별 할인이며, 매주 제한 수량이 있습니다.</p>
-<button class="promo-btn" onclick="openLink('http://app.ac/Cqp4OR283')">🎯 프로모션 적용하기</button>
+<a class="promo-btn" href="http://app.ac/Cqp4OR283" target="_blank" rel="nofollow sponsored noopener">🎯 프로모션 적용하기</a>
 <meta itemprop="priceValidUntil" content="2026-12-31">
 <meta itemprop="availability" content="https://schema.org/LimitedAvailability">
 </div>
@@ -390,7 +414,7 @@ nav a{padding:15px 18px;font-size:0.9rem}
 <span class="discount-badge">UPSGHTL50 - 호텔 S$50</span>
 </div>
 <p style="margin-top:15px">S$400 이상 결제 건에 한해 적용되며, 트립닷컴 앱 예약 건에만 사용 가능합니다.</p>
-<button class="promo-btn" onclick="openLink('http://app.ac/Cqp4OR283')">🎯 프로모션 적용하기</button>
+<a class="promo-btn" href="http://app.ac/Cqp4OR283" target="_blank" rel="nofollow sponsored noopener">🎯 프로모션 적용하기</a>
 <meta itemprop="priceValidUntil" content="2026-12-31">
 <meta itemprop="availability" content="https://schema.org/LimitedAvailability">
 </div>
@@ -414,7 +438,7 @@ nav a{padding:15px 18px;font-size:0.9rem}
 <span class="discount-badge">BCTRIP3</span> <span style="color:#666">BC카드 3%</span>
 </div>
 <p style="margin-top:15px;color:#d63031;font-weight:700">📅 2026년 12월 31일까지 유효 (매월 선착순 수량 제한)</p>
-<button class="promo-btn" onclick="openLink('http://app.ac/Cqp4OR283')">🎯 프로모션 적용하기</button>
+<a class="promo-btn" href="http://app.ac/Cqp4OR283" target="_blank" rel="nofollow sponsored noopener">🎯 프로모션 적용하기</a>
 <meta itemprop="priceValidUntil" content="2026-12-31">
 <meta itemprop="availability" content="https://schema.org/LimitedAvailability">
 </div>
@@ -423,6 +447,7 @@ nav a{padding:15px 18px;font-size:0.9rem}
 <div class="highlight-box">
 <strong>💡 참고사항:</strong> 해외에서도 Visa, Mastercard, Amex 등의 카드 프로모션이 수시로 열립니다. 예를 들어 말레이시아 Visa Infinite 카드로 트립닷컴 결제 시 15% 할인(최대 RM200) 이벤트, HSBC 홍콩 카드로 항공/호텔 8% 할인 연중행사 등이 있습니다. 또한 일부 프로모션 코드는 특정 카드로 결제시에만 사용 가능하므로, 항상 조건을 확인하세요.
 </div>
+<p class="more-wrap"><a class="promo-btn" href="card-discount/">트립닷컴 카드할인 전체 보기</a></p>
 </section>
 
 <section id="intro" class="section">
@@ -443,7 +468,7 @@ nav a{padding:15px 18px;font-size:0.9rem}
 <h3>[트립찬스] 여행 티켓을 잡아라</h3>
 <p>트립닷컴 대형 종합 프로모션으로, 항공권 최대 10만원 할인, 호텔 최대 5만원 할인 쿠폰을 비롯해 태국 항공권·호텔 50% 할인쿠폰, 인기 어트랙션 입장권 특가, 해외 eSIM 1,000원 특가, 렌터카 최대 30% 할인 등 다양한 혜택을 한데 모았습니다.</p>
 <p style="color:#11998e;font-weight:700;margin-top:10px">📅 프로모션 기간: 2026년 10월 25일까지</p>
-<button class="check-btn" onclick="openLink('http://app.ac/Cqp4OR283')">🔍 확인하기</button>
+<a class="check-btn" href="http://app.ac/Cqp4OR283" target="_blank" rel="nofollow sponsored noopener">🔍 확인하기</a>
 </div>
 
 <div class="event-item">
@@ -453,7 +478,7 @@ nav a{padding:15px 18px;font-size:0.9rem}
 <p>트립닷컴 태국 전용 프로모션으로, 매주 수요일 0시에 태국행 항공권과 호텔 최대 50% 할인쿠폰을 선착순 제공하는 행사입니다. 항공+호텔 동시 예약 시 추가 특가 혜택이 있으며, 방콕을 비롯한 태국 5성급 호텔을 10만원대부터 예약할 수 있는 찬스입니다.</p>
 <p style="color:#fa709a;font-weight:700;margin-top:10px">⏰ 매주 수요일 0시 쿠폰 오픈!</p>
 <p style="color:#11998e;font-weight:700">📅 프로모션 기간: 2026년 10월 31일까지</p>
-<button class="check-btn" onclick="openLink('http://app.ac/Cqp4OR283')">🔍 확인하기</button>
+<a class="check-btn" href="http://app.ac/Cqp4OR283" target="_blank" rel="nofollow sponsored noopener">🔍 확인하기</a>
 </div>
 
 <div class="event-item">
@@ -462,7 +487,7 @@ nav a{padding:15px 18px;font-size:0.9rem}
 <h3>🇨🇳 GO 차이나! 중국 항공권 및 호텔 할인</h3>
 <p>2024년부터 이어지고 있는 중국 여행 할인 이벤트로, 중국 주요 노선 항공권 + 호텔 예약 시 5만원 할인코드를 선착순 제공합니다. 상하이, 칭다오, 베이징, 광저우 등 인기 노선이 대상이며, 3박 이상 호텔 예약 시 추가 할인(최대 ₩18,500) 쿠폰도 제공되고 있습니다.</p>
 <p style="color:#11998e;font-weight:700;margin-top:10px">📅 프로모션 기간: 2026년 10월 31일까지</p>
-<button class="check-btn" onclick="openLink('http://app.ac/Cqp4OR283')">🔍 확인하기</button>
+<a class="check-btn" href="http://app.ac/Cqp4OR283" target="_blank" rel="nofollow sponsored noopener">🔍 확인하기</a>
 </div>
 
 <div class="event-item">
@@ -471,7 +496,7 @@ nav a{padding:15px 18px;font-size:0.9rem}
 <h3>[호텔 브랜드 위크] 제주신화월드 전 지점 특가</h3>
 <p>제주 복합 리조트 제주신화월드 전 지점을 1박 9만원대부터 예약할 수 있는 브랜드 위크입니다. 테마파크·워터파크 이용과 연계되며, 10% 할인쿠폰 적용 시 최대 ₩30,000까지 추가 할인됩니다.</p>
 <p style="color:#11998e;font-weight:700;margin-top:10px">📅 프로모션 기간: 2026년 10월 4일까지</p>
-<button class="check-btn" onclick="openLink('http://app.ac/Cqp4OR283')">🔍 확인하기</button>
+<a class="check-btn" href="http://app.ac/Cqp4OR283" target="_blank" rel="nofollow sponsored noopener">🔍 확인하기</a>
 </div>
 
 <div class="event-item">
@@ -480,7 +505,7 @@ nav a{padding:15px 18px;font-size:0.9rem}
 <h3>[위클리 숙박 대전] 서울 지역 호텔 특가</h3>
 <p>서울 인기 호텔을 최대 55% 할인된 가격에 예약할 수 있는 위클리 숙박 대전입니다. 신규회원은 첫 호텔 예약 시 최대 ₩13,000 할인코드를 추가로 받을 수 있습니다.</p>
 <p style="color:#11998e;font-weight:700;margin-top:10px">📅 프로모션 기간: 2026년 10월 4일까지</p>
-<button class="check-btn" onclick="openLink('http://app.ac/Cqp4OR283')">🔍 확인하기</button>
+<a class="check-btn" href="http://app.ac/Cqp4OR283" target="_blank" rel="nofollow sponsored noopener">🔍 확인하기</a>
 </div>
 
 <div class="event-item">
@@ -495,7 +520,7 @@ nav a{padding:15px 18px;font-size:0.9rem}
 <p><strong>목요일 🛫</strong> 이스타항공 Thursday Flash Sale - 원데이 특가</p>
 <p><strong>금요일 🎢</strong> 트립닷컴 X 1+1 티켓 Friday - 테마파크·액티비티 1+1</p>
 </div>
-<button class="check-btn" onclick="openLink('http://app.ac/Cqp4OR283')">🔍 확인하기</button>
+<a class="check-btn" href="http://app.ac/Cqp4OR283" target="_blank" rel="nofollow sponsored noopener">🔍 확인하기</a>
 </div>
 
 <div class="event-item">
@@ -504,7 +529,7 @@ nav a{padding:15px 18px;font-size:0.9rem}
 <h3>트립닷컴 신규 호텔 할인 (최대 20%)</h3>
 <p>최근 새롭게 오픈한 전세계 호텔들을 대상으로 최대 20% 할인율을 적용하는 상시 프로모션입니다. 태국, 베트남, 인도네시아, 말레이시아, 일본, 필리핀 등 인기 여행지의 신규 호텔을 특가로 만나볼 수 있습니다.</p>
 <p style="color:#11998e;font-weight:700;margin-top:10px">📅 프로모션 기간: 2026년 12월 31일까지</p>
-<button class="check-btn" onclick="openLink('http://app.ac/Cqp4OR283')">🔍 확인하기</button>
+<a class="check-btn" href="http://app.ac/Cqp4OR283" target="_blank" rel="nofollow sponsored noopener">🔍 확인하기</a>
 </div>
 
 <div class="event-item">
@@ -521,7 +546,7 @@ nav a{padding:15px 18px;font-size:0.9rem}
 <p>🇶🇦 <strong>카타르 여행 특가</strong> - 도하 왕복 항공권과 호텔 할인</p>
 </div>
 <p style="color:#11998e;font-weight:700;margin-top:15px">📅 2026년 10월 31일까지 진행</p>
-<button class="check-btn" onclick="openLink('http://app.ac/Cqp4OR283')">🔍 확인하기</button>
+<a class="check-btn" href="http://app.ac/Cqp4OR283" target="_blank" rel="nofollow sponsored noopener">🔍 확인하기</a>
 </div>
 
 </div>
@@ -578,197 +603,197 @@ nav a{padding:15px 18px;font-size:0.9rem}
 <p style="text-align:center;margin-bottom:40px;font-size:1.1rem;color:#444;font-weight:500">자주 묻는 질문과 답변을 확인하세요. 클릭하면 답변이 펼쳐집니다!</p>
 <div class="faq-container" itemscope itemtype="https://schema.org/FAQPage">
 
-<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
-<div class="faq-question" onclick="toggleFAQ(this)" itemprop="name">
+<details class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+<summary class="faq-question" itemprop="name">
 <span>Q1. 트립닷컴 할인코드는 어디에서 확인할 수 있나요?</span>
 <span>▼</span>
-</div>
+</summary>
 <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
 <div itemprop="text">
 <p>트립닷컴 공식 프로모션 페이지와 할인 정보 모음 사이트에서 확인할 수 있습니다. 트립닷컴은 매월 공식 블로그(트래블로그)를 통해 할인코드와 핫딜 정보를 발표하며, 솔라 할인코드 같은 사이트에서도 최신 할인코드와 카드 할인 정보를 한눈에 정리해두고 있습니다. 이 페이지(지금 읽고 계신 페이지) 역시 최신 할인코드와 프로모션을 모두 정리한 참고자료입니다.</p>
 </div>
 </div>
-</div>
+</details>
 
-<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
-<div class="faq-question" onclick="toggleFAQ(this)" itemprop="name">
+<details class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+<summary class="faq-question" itemprop="name">
 <span>Q2. 트립닷컴 고객센터는 어떻게 연락할 수 있나요?</span>
 <span>▼</span>
-</div>
+</summary>
 <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
 <div itemprop="text">
 <p>트립닷컴 고객센터는 앱 내 실시간 채팅, 이메일 등으로 24시간 문의 가능합니다. 평균 응답시간은 24시간 이내이며, 긴급한 경우 한국 고객센터(1666-0060)로 전화할 수도 있습니다. 문의 시 예약 번호를 미리 준비하면 상담이 빠르며, 한국어 지원이 가능하니 편하게 문의하세요.</p>
 </div>
 </div>
-</div>
+</details>
 
-<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
-<div class="faq-question" onclick="toggleFAQ(this)" itemprop="name">
+<details class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+<summary class="faq-question" itemprop="name">
 <span>Q3. 트립닷컴 할인코드를 여러 개 동시에 사용할 수 있나요?</span>
 <span>▼</span>
-</div>
+</summary>
 <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
 <div itemprop="text">
 <p>아니요. 여러 프로모션 코드를 중복 적용할 수는 없습니다. 트립닷컴은 한 번에 가장 혜택이 큰 코드 한 개만 사용할 수 있게 되어 있습니다. 예를 들어 5%, 8%, 10% 할인코드가 모두 있어도 그 중 하나만 선택하여 적용해야 하며, 보통 할인율이 가장 높은 코드를 쓰는 것이 유리합니다.</p>
 </div>
 </div>
-</div>
+</details>
 
-<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
-<div class="faq-question" onclick="toggleFAQ(this)" itemprop="name">
+<details class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+<summary class="faq-question" itemprop="name">
 <span>Q4. 트립닷컴 이용 시 주의해야 할 점은 무엇인가요?</span>
 <span>▼</span>
-</div>
+</summary>
 <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
 <div itemprop="text">
 <p>결제 통화와 수수료를 특히 주의해야 합니다. 트립닷컴에서 해외 결제를 할 경우, 카드사에 따라 1~3%의 해외 원화결제 수수료(DCC 수수료)가 붙을 수 있습니다. 이를 피하려면 현지 통화로 결제하거나, 한국 카드라면 원화(KRW) 결제를 선택하세요. 또한 결제수단별 추가 할인혜택(네이버페이 포인트 적립 0.5% 등)이 있으니 알뜰하게 활용하세요.</p>
 </div>
 </div>
-</div>
+</details>
 
-<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
-<div class="faq-question" onclick="toggleFAQ(this)" itemprop="name">
+<details class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+<summary class="faq-question" itemprop="name">
 <span>Q5. 할인코드가 적용되지 않는 이유는 무엇인가요?</span>
 <span>▼</span>
-</div>
+</summary>
 <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
 <div itemprop="text">
 <p>대표적인 이유 5가지가 있습니다: ① 지정된 링크로 접속하지 않음, ② 코드 유효기간 만료, ③ 할인 대상이 아닌 상품에 적용, ④ 코드 입력 오류(오탈자), ⑤ 최소 결제금액 미충족. 이 중 한 가지라도 해당되면 코드가 "사용 불가" 또는 무반응일 수 있습니다. 공식 프로모션 경로로 접속하고 유효한 코드를 조건에 맞는 예약에 정확히 입력하면 대부분 문제없이 할인받을 수 있습니다.</p>
 </div>
 </div>
-</div>
+</details>
 
-<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
-<div class="faq-question" onclick="toggleFAQ(this)" itemprop="name">
+<details class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+<summary class="faq-question" itemprop="name">
 <span>Q6. 트립닷컴 할인코드는 어떻게 사용하나요?</span>
 <span>▼</span>
-</div>
+</summary>
 <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
 <div itemprop="text">
 <p>할인코드 입력은 결제 단계에서 이루어집니다. 항공권이나 호텔 선택을 완료하고 예약자 정보를 입력한 후, 결제 페이지에서 "프로모션 코드/쿠폰" 입력란이 나타납니다. 여기에 보유한 할인코드를 복사하여 붙여넣기 하면 즉시 할인 금액이 반영됩니다. PC 웹에서는 결제 화면 우측 또는 하단에, 모바일 앱에서는 결제 진행 중간에 코드 입력란이 표시됩니다.</p>
 </div>
 </div>
-</div>
+</details>
 
-<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
-<div class="faq-question" onclick="toggleFAQ(this)" itemprop="name">
+<details class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+<summary class="faq-question" itemprop="name">
 <span>Q7. 결제 통화는 원화로 해야 하나요, 현지 통화로 해야 하나요?</span>
 <span>▼</span>
-</div>
+</summary>
 <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
 <div itemprop="text">
 <p>한국에서 발급된 카드로 결제한다면 웬만하면 원화(KRW) 결제를 권장합니다. 트립닷컴 한국 사이트의 할인코드 대부분은 원화 결제시에만 적용 가능하고, 원화로 결제하면 해외결제 수수료도 발생하지 않습니다. 다만, 해외 현지인을 위한 프로모션 코드를 사용하는 경우에는 해당 통화로 결제해야 코드 입력란이 활성화됩니다.</p>
 </div>
 </div>
-</div>
+</details>
 
-<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
-<div class="faq-question" onclick="toggleFAQ(this)" itemprop="name">
+<details class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+<summary class="faq-question" itemprop="name">
 <span>Q8. 트립닷컴에 학생 할인이나 청소년 할인도 있나요?</span>
 <span>▼</span>
-</div>
+</summary>
 <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
 <div itemprop="text">
 <p>네, 학생 전용 할인 프로그램이 있습니다. 트립닷컴은 예산이 빠듯한 학생 여행자들을 위해 특별 학생 요금(Student Fare)을 제공하고 있습니다. 일부 항공노선에 학생 할인운임이 적용되며, 국제학생증(ISIC) 등을 보유한 경우 혜택을 받을 수도 있습니다. 트립닷컴 웹/앱에서 "학생 할인 항공권"으로 표시된 상품을 찾아보세요.</p>
 </div>
 </div>
-</div>
+</details>
 
-<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
-<div class="faq-question" onclick="toggleFAQ(this)" itemprop="name">
+<details class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+<summary class="faq-question" itemprop="name">
 <span>Q9. 할인코드를 써서 예약하면 마일리지나 트립코인은 못 적립하나요?</span>
 <span>▼</span>
-</div>
+</summary>
 <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
 <div itemprop="text">
 <p>적립 가능합니다! 트립닷컴에서 할인코드를 사용하더라도 항공사 마일리지 및 트립닷컴 자체 포인트(Trip Coins) 적립에는 지장이 없습니다. 트립닷컴은 항공권 예약 시 해당 항공사의 마일리지 번호를 입력하면 정상 적립해주고, 예약 금액에 따라 트립코인도 자동 적립됩니다. 심지어 일부 프로모션은 "Trip Coins + 항공사 마일리지 더블 적립"을 강조하기도 합니다.</p>
 </div>
 </div>
-</div>
+</details>
 
-<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
-<div class="faq-question" onclick="toggleFAQ(this)" itemprop="name">
+<details class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+<summary class="faq-question" itemprop="name">
 <span>Q10. 트립닷컴에 추천인 프로그램(친구 초대 혜택)이 있나요?</span>
 <span>▼</span>
-</div>
+</summary>
 <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
 <div itemprop="text">
 <p>있습니다. 트립닷컴 추천인 링크를 통해 친구가 가입하면 서로 혜택을 받을 수 있습니다. 예를 들어 친구가 내 초대 링크로 가입 시 친구는 호텔 예약에 쓸 수 있는 S$20 상당의 할인코드팩을 받고, 나는 최대 S$200 상당의 트립코인을 적립할 수 있습니다 (한화 약 20만원 상당). 추천 프로그램은 트립닷컴 앱의 "추천 & 적립" 메뉴에서 참여할 수 있습니다.</p>
 </div>
 </div>
-</div>
+</details>
 
-<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
-<div class="faq-question" onclick="toggleFAQ(this)" itemprop="name">
+<details class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+<summary class="faq-question" itemprop="name">
 <span>Q11. 한 번 쓴 할인코드를 또 쓸 수 있나요?</span>
 <span>▼</span>
-</div>
+</summary>
 <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
 <div itemprop="text">
 <p>대부분의 할인코드는 계정당 1회 사용이 원칙입니다. 동일 코드를 두 번 입력하면 "이미 사용된 코드"로 간주되어 적용되지 않습니다. 다만 예외적으로 사용 횟수 제한이 여러 번인 코드도 있습니다. 예를 들어 트립닷컴-Mastercard 중동 프로모션 코드는 "사용자당 연 10회까지 사용 가능"한 경우도 있었고, 일부 카드 제휴코드는 매달 1회씩 새로 적용 가능합니다.</p>
 </div>
 </div>
-</div>
+</details>
 
-<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
-<div class="faq-question" onclick="toggleFAQ(this)" itemprop="name">
+<details class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+<summary class="faq-question" itemprop="name">
 <span>Q12. 할인코드를 쓰려면 결제 금액이 일정 이상이어야 하나요?</span>
 <span>▼</span>
-</div>
+</summary>
 <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
 <div itemprop="text">
 <p>코드마다 다릅니다. 상당수 트립닷컴 할인코드는 최소 결제 금액 제한이 없습니다. 예를 들어 "호텔 8% 할인코드"는 금액과 무관하게 적용됩니다. 그러나 일부 고정 할인액 쿠폰이나 카드 행사는 조건이 있습니다. 예를 들어 HSBC 카드 프로모션은 "S$1,000 이상 결제 시 S$120 할인" 같은 조건이 있었습니다. 따라서 각 코드별 약관에서 최소 결제 금액을 확인해야 합니다.</p>
 </div>
 </div>
-</div>
+</details>
 
-<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
-<div class="faq-question" onclick="toggleFAQ(this)" itemprop="name">
+<details class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+<summary class="faq-question" itemprop="name">
 <span>Q13. 할인코드와 다른 할인을 함께 쓸 수 있나요?</span>
 <span>▼</span>
-</div>
+</summary>
 <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
 <div itemprop="text">
 <p>중복 할인은 일부만 가능합니다. 여러 프로모션 코드를 동시에 쓸 수는 없습니다. 또한 프로모션 코드와 다른 이벤트 할인은 중복되지 않는 경우가 대부분입니다. 예를 들어 카드 즉시할인과 코드 할인은 동시에 적용되지 않거나, Trip Coins 사용과 코드 사용을 동시에 못 할 수 있습니다. 일반 원칙은 "한 주문당 한 종류의 할인만"이라고 생각하면 됩니다.</p>
 </div>
 </div>
-</div>
+</details>
 
-<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
-<div class="faq-question" onclick="toggleFAQ(this)" itemprop="name">
+<details class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+<summary class="faq-question" itemprop="name">
 <span>Q14. 할인코드를 써서 예약했는데 취소하면 코드가 사라지나요?</span>
 <span>▼</span>
-</div>
+</summary>
 <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
 <div itemprop="text">
 <p>상황에 따라 다릅니다. 이미 결제 완료 후 취소한 경우 해당 코드가 이미 사용된 것으로 간주되어 재사용 불가인 경우가 많습니다. 결제창까지 갔지만 결제가 이루어지지 않은 경우 "결제 안 됐으니 코드 다시 쓰라고 재발급"되는 사례도 있습니다. 실무적으로는, 전액 환불 취소시 코드도 소멸하는 일이 많으므로 신중히 사용하는 것이 좋습니다.</p>
 </div>
 </div>
-</div>
+</details>
 
-<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
-<div class="faq-question" onclick="toggleFAQ(this)" itemprop="name">
+<details class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+<summary class="faq-question" itemprop="name">
 <span>Q15. 트립코인(Trip Coins)은 무엇이고 어떻게 사용하나요?</span>
 <span>▼</span>
-</div>
+</summary>
 <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
 <div itemprop="text">
 <p>트립코인은 트립닷컴의 리워드 포인트입니다. 호텔, 항공, 액티비티 등을 예약할 때 적립되며, 적립된 트립코인은 다음 번 예약 시 현금처럼 사용해서 결제 금액을 깎을 수 있습니다. 적립률은 회원 등급에 따라 다르지만, 많이 예약할수록 더 많이 적립됩니다. 트립코인은 1코인 = 1HKD (홍콩달러) 기준으로 환산되며, 예약 결제 단계에서 "Use Trip Coins" 옵션을 켜고 사용하려는 코인 수를 선택하면 그만큼 할인됩니다.</p>
 </div>
 </div>
-</div>
+</details>
 
-<div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
-<div class="faq-question" onclick="toggleFAQ(this)" itemprop="name">
+<details class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+<summary class="faq-question" itemprop="name">
 <span>Q16. 그 외 트립닷컴 바우처나 쿠폰이 따로 있나요?</span>
 <span>▼</span>
-</div>
+</summary>
 <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
 <div itemprop="text">
 <p>트립닷컴에서는 할인코드 외에도 "쿠폰"이라는 이름으로 할인 혜택을 제공합니다. 쿠폰은 코드 입력 없이 계정에 자동 발급되어 있는 할인권으로, 예약 시 조건 만족하면 자동 적용되는 형태입니다. 예를 들어 신규 가입 시 받는 웰컴 쿠폰팩(호텔 ₩13,000 할인 등)이나, 특정 기간에 지급되는 숙박 ₩3만원 할인쿠폰 등이 있습니다. 이러한 쿠폰/바우처는 마이페이지 > 쿠폰 또는 바우처 탭에서 확인 가능합니다.</p>
 </div>
 </div>
-</div>
+</details>
 
 </div>
 </section>
@@ -781,14 +806,14 @@ nav a{padding:15px 18px;font-size:0.9rem}
 <p style="font-size:13px;color:#888;margin-bottom:6px;letter-spacing:1px;">COUPON LINKS</p>
 <h3 style="font-size:18px;margin-bottom:20px;color:#2c3e50;font-weight:700;">🔗 다른 할인코드 보러가기</h3>
 <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px;">
-<a href="https://agd.trip-offer.co.kr/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:10px 18px;background:#fff;border:1px solid #e0e0e0;border-radius:50px;font-size:14px;color:#333;text-decoration:none;font-weight:500;transition:all 0.2s;box-shadow:0 1px 3px rgba(0,0,0,0.04);" onmouseover="this.style.background='#f0f4ff';this.style.borderColor='#4a90d9';this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 12px rgba(74,144,217,0.15)'" onmouseout="this.style.background='#fff';this.style.borderColor='#e0e0e0';this.style.transform='translateY(0)';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.04)'">아고다 할인코드</a>
-<a href="https://exp.trip-offer.co.kr/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:10px 18px;background:#fff;border:1px solid #e0e0e0;border-radius:50px;font-size:14px;color:#333;text-decoration:none;font-weight:500;transition:all 0.2s;box-shadow:0 1px 3px rgba(0,0,0,0.04);" onmouseover="this.style.background='#f0f4ff';this.style.borderColor='#4a90d9';this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 12px rgba(74,144,217,0.15)'" onmouseout="this.style.background='#fff';this.style.borderColor='#e0e0e0';this.style.transform='translateY(0)';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.04)'">익스피디아 쿠폰</a>
-<a href="https://fft.trip-offer.co.kr/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:10px 18px;background:#fff;border:1px solid #e0e0e0;border-radius:50px;font-size:14px;color:#333;text-decoration:none;font-weight:500;transition:all 0.2s;box-shadow:0 1px 3px rgba(0,0,0,0.04);" onmouseover="this.style.background='#f0f4ff';this.style.borderColor='#4a90d9';this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 12px rgba(74,144,217,0.15)'" onmouseout="this.style.background='#fff';this.style.borderColor='#e0e0e0';this.style.transform='translateY(0)';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.04)'">파페치 쿠폰</a>
-<a href="https://hts.trip-offer.co.kr/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:10px 18px;background:#fff;border:1px solid #e0e0e0;border-radius:50px;font-size:14px;color:#333;text-decoration:none;font-weight:500;transition:all 0.2s;box-shadow:0 1px 3px rgba(0,0,0,0.04);" onmouseover="this.style.background='#f0f4ff';this.style.borderColor='#4a90d9';this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 12px rgba(74,144,217,0.15)'" onmouseout="this.style.background='#fff';this.style.borderColor='#e0e0e0';this.style.transform='translateY(0)';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.04)'">호텔스닷컴 할인쿠폰</a>
-<a href="https://kkd.trip-offer.co.kr/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:10px 18px;background:#fff;border:1px solid #e0e0e0;border-radius:50px;font-size:14px;color:#333;text-decoration:none;font-weight:500;transition:all 0.2s;box-shadow:0 1px 3px rgba(0,0,0,0.04);" onmouseover="this.style.background='#f0f4ff';this.style.borderColor='#4a90d9';this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 12px rgba(74,144,217,0.15)'" onmouseout="this.style.background='#fff';this.style.borderColor='#e0e0e0';this.style.transform='translateY(0)';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.04)'">KKday 할인쿠폰</a>
-<a href="https://klk.trip-offer.co.kr/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:10px 18px;background:#fff;border:1px solid #e0e0e0;border-radius:50px;font-size:14px;color:#333;text-decoration:none;font-weight:500;transition:all 0.2s;box-shadow:0 1px 3px rgba(0,0,0,0.04);" onmouseover="this.style.background='#f0f4ff';this.style.borderColor='#4a90d9';this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 12px rgba(74,144,217,0.15)'" onmouseout="this.style.background='#fff';this.style.borderColor='#e0e0e0';this.style.transform='translateY(0)';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.04)'">클룩 할인코드</a>
-<a href="https://mrt.trip-offer.co.kr/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:10px 18px;background:#fff;border:1px solid #e0e0e0;border-radius:50px;font-size:14px;color:#333;text-decoration:none;font-weight:500;transition:all 0.2s;box-shadow:0 1px 3px rgba(0,0,0,0.04);" onmouseover="this.style.background='#f0f4ff';this.style.borderColor='#4a90d9';this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 12px rgba(74,144,217,0.15)'" onmouseout="this.style.background='#fff';this.style.borderColor='#e0e0e0';this.style.transform='translateY(0)';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.04)'">마이리얼트립 할인쿠폰</a>
-<a href="https://trip-offer.co.kr/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:10px 18px;background:#fff;border:1px solid #e0e0e0;border-radius:50px;font-size:14px;color:#333;text-decoration:none;font-weight:500;transition:all 0.2s;box-shadow:0 1px 3px rgba(0,0,0,0.04);" onmouseover="this.style.background='#f0f4ff';this.style.borderColor='#4a90d9';this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 12px rgba(74,144,217,0.15)'" onmouseout="this.style.background='#fff';this.style.borderColor='#e0e0e0';this.style.transform='translateY(0)';this.style.boxShadow='0 1px 3px rgba(0,0,0,0.04)'">트립닷컴 할인코드</a>
+<a href="https://agd.trip-offer.co.kr/" class="coupon-link" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:10px 18px;background:#fff;border:1px solid #e0e0e0;border-radius:50px;font-size:14px;color:#333;text-decoration:none;font-weight:500;transition:all 0.2s;box-shadow:0 1px 3px rgba(0,0,0,0.04);">아고다 할인코드</a>
+<a href="https://exp.trip-offer.co.kr/" class="coupon-link" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:10px 18px;background:#fff;border:1px solid #e0e0e0;border-radius:50px;font-size:14px;color:#333;text-decoration:none;font-weight:500;transition:all 0.2s;box-shadow:0 1px 3px rgba(0,0,0,0.04);">익스피디아 쿠폰</a>
+<a href="https://fft.trip-offer.co.kr/" class="coupon-link" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:10px 18px;background:#fff;border:1px solid #e0e0e0;border-radius:50px;font-size:14px;color:#333;text-decoration:none;font-weight:500;transition:all 0.2s;box-shadow:0 1px 3px rgba(0,0,0,0.04);">파페치 쿠폰</a>
+<a href="https://hts.trip-offer.co.kr/" class="coupon-link" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:10px 18px;background:#fff;border:1px solid #e0e0e0;border-radius:50px;font-size:14px;color:#333;text-decoration:none;font-weight:500;transition:all 0.2s;box-shadow:0 1px 3px rgba(0,0,0,0.04);">호텔스닷컴 할인쿠폰</a>
+<a href="https://kkd.trip-offer.co.kr/" class="coupon-link" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:10px 18px;background:#fff;border:1px solid #e0e0e0;border-radius:50px;font-size:14px;color:#333;text-decoration:none;font-weight:500;transition:all 0.2s;box-shadow:0 1px 3px rgba(0,0,0,0.04);">KKday 할인쿠폰</a>
+<a href="https://klk.trip-offer.co.kr/" class="coupon-link" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:10px 18px;background:#fff;border:1px solid #e0e0e0;border-radius:50px;font-size:14px;color:#333;text-decoration:none;font-weight:500;transition:all 0.2s;box-shadow:0 1px 3px rgba(0,0,0,0.04);">클룩 할인코드</a>
+<a href="https://mrt.trip-offer.co.kr/" class="coupon-link" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:10px 18px;background:#fff;border:1px solid #e0e0e0;border-radius:50px;font-size:14px;color:#333;text-decoration:none;font-weight:500;transition:all 0.2s;box-shadow:0 1px 3px rgba(0,0,0,0.04);">마이리얼트립 할인쿠폰</a>
+<a href="https://trip-offer.co.kr/" class="coupon-link" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:10px 18px;background:#fff;border:1px solid #e0e0e0;border-radius:50px;font-size:14px;color:#333;text-decoration:none;font-weight:500;transition:all 0.2s;box-shadow:0 1px 3px rgba(0,0,0,0.04);">트립닷컴 할인코드</a>
 </div>
 </section>
 
@@ -827,6 +852,36 @@ nav a{padding:15px 18px;font-size:0.9rem}
 </style>
 <footer>
 <div class="container">
+<!--@FOOTER-LINKS-->
+<div class="footer-links">
+<div class="footer-links-group">
+<p class="footer-links-title">카드사별 할인</p>
+<ul>
+<li><a href="shinhan-card/">신한카드</a></li>
+<li><a href="samsung-card/">삼성카드</a></li>
+<li><a href="nh-card/">NH농협카드</a></li>
+<li><a href="master-card/">마스터카드</a></li>
+<li><a href="visa-card/">비자카드</a></li>
+<li><a href="kb-card/">KB국민카드</a></li>
+<li><a href="woori-card/">우리카드</a></li>
+<li><a href="bc-card/">BC카드</a></li>
+<li><a href="unionpay-card/">유니온페이</a></li>
+<li><a href="kakao-pay/">카카오페이</a></li>
+<li><a href="toss-pay/">토스페이</a></li>
+</ul>
+</div>
+<div class="footer-links-group">
+<p class="footer-links-title">다른 할인코드</p>
+<ul>
+<li><a href="agoda/">아고다</a></li>
+<li><a href="myrealtrip/">마이리얼트립</a></li>
+<li><a href="klook/">클룩</a></li>
+<li><a href="hotelscom/">호텔스닷컴</a></li>
+<li><a href="rakutentravel/">라쿠텐트래블</a></li>
+</ul>
+</div>
+</div>
+<!--@/FOOTER-LINKS-->
 <p style="font-size:1.2rem;font-weight:700;margin-bottom:20px">💎 트립닷컴 할인코드</p>
 <p>&copy; 2026 트립닷컴 할인코드. 모든 권리 보유.</p>
 <p>트립닷컴의 다양한 할인 혜택을 잘 활용하면, 항공권과 호텔 예약에서 상당한 비용 절감을 실현할 수 있습니다.</p>
@@ -836,64 +891,6 @@ nav a{padding:15px 18px;font-size:0.9rem}
 </div>
 </footer>
 
-<div class="scroll-top" id="scrollTop" onclick="scrollToTop()">↑</div>
-
-<script>
-function toggleFAQ(element){
-var answer=element.nextElementSibling;
-var isActive=answer.classList.contains('active');
-var allAnswers=document.querySelectorAll('.faq-answer');
-var allQuestions=document.querySelectorAll('.faq-question');
-allAnswers.forEach(function(item){item.classList.remove('active');});
-allQuestions.forEach(function(item){item.classList.remove('active');});
-if(!isActive){
-answer.classList.add('active');
-element.classList.add('active');
-}
-}
-function copyCode(code,btn,url){
-var dest=url||'http://app.ac/Cqp4OR283';
-navigator.clipboard.writeText(code).then(function(){
-var originalText=btn.textContent;
-btn.textContent='✅ 복사 완료!';
-btn.disabled=true;
-setTimeout(function(){
-openLink(dest);
-},500);
-}).catch(function(err){
-alert('코드 복사 실패. 수동으로 복사해주세요: '+code);
-openLink(dest);
-});
-}
-function openLink(url){
-var link=document.createElement('a');
-link.href=url;
-link.target='_blank';
-link.rel='nofollow noreferrer noopener';
-document.body.appendChild(link);
-link.click();
-document.body.removeChild(link);
-}
-window.addEventListener('scroll',function(){
-var scrollTop=document.getElementById('scrollTop');
-if(window.pageYOffset>300){
-scrollTop.classList.add('show');
-}else{
-scrollTop.classList.remove('show');
-}
-});
-function scrollToTop(){
-window.scrollTo({top:0,behavior:'smooth'});
-}
-</script>
-<script type="text/javascript" src="//wcs.pstatic.net/wcslog.js"></script>
-<script type="text/javascript">
-if(!wcs_add) var wcs_add = {};
-wcs_add["wa"] = "20b688fe292f38";
-if(window.wcs) {
-  wcs_do();
-}
-</script>
 
 <!-- blog-link-added -->
 <div style="text-align:center;padding:20px 16px;font:15px/1.6 Pretendard,system-ui,sans-serif">
